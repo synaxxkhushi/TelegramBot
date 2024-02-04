@@ -30,6 +30,11 @@ async def start(_, message):
        pm_msg = "I Already Awake!  ( • ̀ω•́  )"
        await message.reply_text(pm_msg)
 
+@bot.on_message(filters.command("help_"))
+async def help_(_, message):
+    await message.reply_text(HELP_TEXT,
+    reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
+
 @bot.on_message(filters.command("help"))
 async def help(_, message):
    if message.chat.type == ChatType.PRIVATE:
@@ -41,7 +46,7 @@ async def help(_, message):
           [
             InlineKeyboardButton(
               "Click me for help", 
-              url="https://t.me/CuteSerenaBot?start=help",
+              url="https://t.me/CuteSerenaBot?start=help_",
             ),
           ],
         ],
