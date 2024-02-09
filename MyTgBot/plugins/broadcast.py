@@ -8,7 +8,7 @@ import asyncio, datetime, time
 db = mongodb["BROADCAST"]
 
 @bot.on_message(filters.command(["broadcast", "users"]))  
-async def broadcast(c, m):
+async def users(c, m):
     if m.text == "/users":
         total_users = db.count_documents({})
         return await m.reply(f"Total Users: {total_users}")
@@ -20,6 +20,7 @@ async def broadcast(c, m):
     failed = 0
     success = 0
     start_time = time.time()
+    async def broadcast(c, m):
         user_id = int(user['id'])
         try:
             await b_msg.copy(chat_id=user_id)
