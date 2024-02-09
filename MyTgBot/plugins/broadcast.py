@@ -10,12 +10,12 @@ db = mongodb["BROADCAST"]
 @bot.on_message(filters.command(["broadcast", "users"]))  
 async def broadcast(c, m):
     if m.text == "/users":
-        total_users = await db.count_documents({})
+        total_users = db.count_documents({})
         return await m.reply(f"Total Users: {total_users}")
     b_msg = m.reply_to_message
-    sts = await m.reply_text("Broadcasting your messages...")
+    sts = m.reply_text("Broadcasting your messages...")
     users = db.find({})
-    total_users = await db.count_documents({})
+    total_users = db.count_documents({})
     done = 0
     failed = 0
     success = 0
