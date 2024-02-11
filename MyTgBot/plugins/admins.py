@@ -26,6 +26,8 @@ async def ban(_, message):
         await message.reply_text("Work only on groups!")
     else:
         try:
+            if not message.reply_to_message:
+                 return await message.reply("**Reply someone to ban.**")
             get = await bot.get_chat_member(message.chat.id, message.from_user.id)
             reply = message.reply_to_message
             if not get.privileges:
@@ -47,6 +49,8 @@ async def unban(_, message):
         await message.reply_text("Work only on groups!")
     else:
         try:
+            if not message.reply_to_message:
+                 return await message.reply("**Reply someone to unban.**")
             get = await bot.get_chat_member(message.chat.id,message.from_user.id)
             reply = message.reply_to_message
             if not get.privileges:
