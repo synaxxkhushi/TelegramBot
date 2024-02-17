@@ -1,5 +1,5 @@
 import datetime
-from MyTgBot.database import *
+from MyTgBot import mongodb
 
 users = mongodb["users"]
 chats = mongodb["chats"]
