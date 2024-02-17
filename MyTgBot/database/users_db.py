@@ -125,13 +125,13 @@ async def add_chat(chat_id, chat_title):
 
 async def get_all_chat_ids():
     chat_ids = []
-    async for chat in chats.find({}):
+    for chat in chats.find({}):
         chat_ids.append(chat['chat_id'])
     return chat_ids
 
 async def get_all_user_ids():
     user_ids = []
-    async for user in users.find({}):
+    for user in users.find({}):
         user_ids.append(user['user_id'])
     return user_ids
 
