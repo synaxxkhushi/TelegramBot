@@ -154,7 +154,6 @@ Usage of fun commands:
 async def funhelp(_, query: CallbackQuery):
      await query.message.edit_caption(FUN_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
-                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
 
 NEKOS_TEXT = """
 Usage of animation reactions commands:
