@@ -9,8 +9,8 @@ async def broadcast(_, message):
       to_send=message.reply_to_message.id
     if not message.reply_to_message:
       return await message.reply_text("Reply To Some Post To Broadcast")
-    chats = await get_all_chat_ids() or []
-    users = await get_all_user_ids() or []
+    chats = await get_all_chat_ids()
+    users = await get_all_user_ids()
     print(chats)
     print(users)
     failed = 0
