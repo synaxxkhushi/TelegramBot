@@ -1,7 +1,7 @@
 import os
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from MyTgBot import bot
+from MyTgBot import bot, api_id, api_hash, bot_token
 import pyrogram
 
 @bot.on_message(filters.private & filters.command("clone"))
