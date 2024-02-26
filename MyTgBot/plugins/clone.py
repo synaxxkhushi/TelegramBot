@@ -18,7 +18,7 @@ async def bot_clone(bot: bot, msg: Message):
     
     try:        
         # Change your root directory here
-        bot = Client(":memory:", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN, plugins={"root": "MyTgBot"})
+        bot = Client(":memory:", api_id=api_id, api_hash=api_hash, bot_token=bot_token, plugins={"root": "MyTgBot"})
         await bot.start()
         await pyrogram.idle()
         user = await bot.get_me()
