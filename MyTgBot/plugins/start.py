@@ -30,8 +30,8 @@ async def start(_, message):
     await message.reply_text(START_TEXT,
     reply_markup=InlineKeyboardMarkup(buttons),)
     else:
-       pm_msg = "I Already Awake!  ( • ̀ω•́  )"
-       await message.reply_text(pm_msg)
+        pm_msg = "I Already Awake!  ( • ̀ω•́  )"
+        await message.reply_text(pm_msg)
 
 @bot.on_message(filters.command("help"))
 async def help(_, message):
