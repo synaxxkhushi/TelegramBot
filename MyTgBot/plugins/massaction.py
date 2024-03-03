@@ -5,7 +5,7 @@ from MyTgBot.help.massaction import *
 from MyTgBot import bot
 
 
-@bot.on_message(filters.command(["unbanall","massunban"]))
+@bot.on_message(filters.command(["unbanall","massunban"], ["/", ".", "?", "!"]))
 async def unbanall(_, message):
      user_id = message.from_user.id
      chat_id = message.chat.id
@@ -26,7 +26,7 @@ async def unbanall(_, message):
            print(e)
           
 
-@bot.on_message(filters.command(["sbanall","banall","massban"]))
+@bot.on_message(filters.command(["sbanall","banall","massban"], ["/", ".", "?", "!"]))
 async def banall(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
@@ -54,7 +54,7 @@ async def banall(_, message):
         print(e)
      
 
-@bot.on_message(filters.command(["skickall","kickall","masskick"]))
+@bot.on_message(filters.command(["skickall","kickall","masskick"], ["/", ".", "?", "!"]))
 async def kickall(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
