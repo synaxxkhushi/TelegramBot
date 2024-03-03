@@ -20,7 +20,6 @@ async def get_served_users() -> list:
 
 
 async def add_served_user(user_id: int):
-    is_served = usersdb.is_served_user(user_id)
-    if is_served:
+    if is_served_user:
         return
     return await usersdb.insert_one({"user_id": user_id})
