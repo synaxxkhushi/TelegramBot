@@ -43,7 +43,7 @@ async def ban(_, message):
            await message.reply(f"**Error**: {errors}")
 
 
-@bot.on_message(filters.command("unban"))
+@bot.on_message(filters.command("unban",  ["/", ".", "?", "!"]))
 async def unban(_, message):
     if message.chat.type == "private":
         await message.reply_text("Work only on groups!")
@@ -66,7 +66,7 @@ async def unban(_, message):
            await message.reply(f"**Error**: {errors}")
 
 
-@bot.on_message(filters.command("kick"))
+@bot.on_message(filters.command("kick", ["/", ".", "?", "!"]))
 async def kick(_, message):
     if not message.reply_to_message:
            return await message.reply("**Reply someone to kick.**")
@@ -84,7 +84,7 @@ async def kick(_, message):
         await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
 
 
-@bot.on_message(filters.command("demote"))
+@bot.on_message(filters.command("demote", ["/", ".", "?", "!"]))
 async def demotes(_, message):
    try:
        if not message.reply_to_message:
@@ -115,7 +115,7 @@ async def demotes(_, message):
 
       
       
-@bot.on_message(filters.command("promote"))
+@bot.on_message(filters.command("promote", ["/", ".", "?", "!"]))
 async def promoting(_, message):
      global new_admin
      if not message.reply_to_message:
@@ -178,7 +178,7 @@ async def demoting(_, query):
                await query.answer("You can't Demote!", show_alert=True )
                     
         
-@bot.on_message(filters.command("del"))
+@bot.on_message(filters.command("del", ["/", ".", "?", "!"]))
 async def delete(_, m):
      reply = m.reply_to_message
      chat = m.chat
@@ -200,7 +200,7 @@ async def delete(_, m):
                await m.delete()
                
                      
-@bot.on_message(filters.command(["setgtitle","setchattitle"]))
+@bot.on_message(filters.command(["setgtitle","setchattitle"], ["/", ".", "?", "!"]))
 async def setgrouptitle(_, m):
      reply = m.reply_to_message
      user = m.from_user
@@ -223,7 +223,7 @@ async def setgrouptitle(_, m):
                await m.chat.set_title(new_title)
                await m.reply_text(f"Successfully set {new_title} as new chat title!")
 
-@bot.on_message(filters.command(["setgpic","setchatpic"]))
+@bot.on_message(filters.command(["setgpic","setchatpic"], ["/", ".", "?", "!"]))
 async def setgrouptitle(_, m):
      reply = m.reply_to_message
      user = m.from_user
