@@ -5,7 +5,7 @@ from pyrogram import enums
 
 db = mongodb["NOTES"]
 
-@bot.on_message(filters.command("notes"))
+@bot.on_message(filters.command("notes", ["/", ".", "?", "!"]))
 async def notes(_, message):
      chat_id = message.chat.id
      notes = f"List Of Notes In **{message.chat.title}**:\n\n"
@@ -19,7 +19,7 @@ async def notes(_, message):
      notes += "\nYou can retrieve these notes by using #notename"
      return await message.reply_text(notes)
 
-@bot.on_message(filters.command("clear"))
+@bot.on_message(filters.command("clear", ["/", ".", "?", "!"]))
 async def clear(_, message):
       chat_id = message.chat.id
       get = await bot.get_chat_member(message.chat.id, message.from_user.id)
@@ -32,7 +32,7 @@ async def clear(_, message):
           return await message.reply_text(f"Deleted! > `{note_name}` <")
       return await message.reply_text(f"No Notes Named > `{note_name}` <")
 
-@bot.on_message(filters.command("save"))
+@bot.on_message(filters.command("save", ["/", ".", "?", "!"]))
 async def save(_, message):
      reply = message.reply_to_message
      get = await bot.get_chat_member(message.chat.id, message.from_user.id)
