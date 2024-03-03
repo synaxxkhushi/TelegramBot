@@ -23,6 +23,8 @@ buttons = [
 
 @bot.on_message(filters.command("start"))
 async def start(_, message):
+    user_id = message.from_user.id
+    await add_served_user(user_id)
    if message.chat.type == ChatType.PRIVATE:    
     await message.reply_text(START_TEXT,
     reply_markup=InlineKeyboardMarkup(buttons),)
