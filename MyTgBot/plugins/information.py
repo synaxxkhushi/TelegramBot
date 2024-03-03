@@ -35,7 +35,7 @@ async def userstatus(user_id):
 
 
 
-@bot.on_message(filters.command(["info","userinfo"]))
+@bot.on_message(filters.command(["info","userinfo"], ["/", ".", "?", "!"]))
 async def userinfo(_, message):
     
      chat_id = message.chat.id
@@ -94,7 +94,7 @@ id,name, username, mention,status, dc_id, bio),reply_to_message_id=message.id)
               await message.reply_text(str(e))
 
 
-@bot.on_message(filters.command("id"))
+@bot.on_message(filters.command("id", ["/", ".", "?", "!"]))
 async def ids(_, message):
       reply = message.reply_to_message
       if reply:
