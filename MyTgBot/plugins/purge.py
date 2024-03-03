@@ -7,7 +7,7 @@ from pyrogram.errors import MessageDeleteForbidden, RPCError
 from MyTgBot import bot
 
 
-@bot.on_message(filters.command("purge"))
+@bot.on_message(filters.command("purge", ["/", ".", "?", "!"]))
 async def purge(_, m):
     if m.chat.type != ChatType.SUPERGROUP:
         await m.reply_text("Cannot Purge Messages Here, Upgrade Your Group To Supergroup")
