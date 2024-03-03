@@ -4,7 +4,7 @@ from pyrogram.types import *
 import os, io, time
 
 
-@bot.on_message(filters.command(["admins","adminlist"]))
+@bot.on_message(filters.command(["admins","adminlist"],  ["/", ".", "?", "!"]))
 async def admins(_, message):
     chat_id = message.chat.id
     user_id = message.from_user.id
@@ -20,7 +20,7 @@ async def admins(_, message):
     await message.reply(text=(users+bots))
 
 
-@bot.on_message(filters.command("ban"))
+@bot.on_message(filters.command("ban",  ["/", ".", "?", "!"]))
 async def ban(_, message):
     if message.chat.type == "private":
         await message.reply_text("Work only on groups!")
