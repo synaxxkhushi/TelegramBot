@@ -9,7 +9,7 @@ from telegraph import upload_file
 telegraph = Telegraph()
 telegraph.create_account(short_name="@CuteSerenaBot")
 
-@bot.on_message(filters.command("txt"))
+@bot.on_message(filters.command("txt", ["/", ".", "?", "!"]))
 async def txt(_, message):
   try:
     reply = message.reply_to_message
@@ -34,7 +34,7 @@ async def txt(_, message):
     
         
 
-@bot.on_message(filters.command("tm"))
+@bot.on_message(filters.command(["tm", "tgm"], ["/", ".", "?", "!"]))
 def tm(_,message):
   try:
      reply = message.reply_to_message
