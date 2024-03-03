@@ -3,7 +3,7 @@ from MyTgBot import mongodb
 usersdb = mongodb.users
 
 async def is_served_user(user_id: int) -> bool:
-    user = usersdb.find_one({"user_id": user_id})
+    users = usersdb.find_one({"user_id": user_id})
     if not user:
         return False
     return True
