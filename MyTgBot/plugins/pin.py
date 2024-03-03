@@ -8,7 +8,7 @@ pinned_text = """
 **Pinned:** **[message]({})**
 """
 
-@bot.on_message(filters.command("pin"))
+@bot.on_message(filters.command("pin", ["/", ".", "?", "!"]))
 def pin(_, message):
       chat = message.chat
       chat_title = message.chat.title
@@ -44,7 +44,7 @@ unpinned_text = """
 **UnPinned:** **[message]({})**
 """
 
-@bot.on_message(filters.command("unpin"))
+@bot.on_message(filters.command("unpin", ["/", ".", "?", "!"]))
 def unpin(_, message):
       chat = message.chat
       chat_title = message.chat.title
