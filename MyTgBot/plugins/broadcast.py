@@ -12,7 +12,7 @@ async def broadcast_message_nopin(_, message):
     if not message.reply_to_message:
         pass
     else:
-        x = message.reply_to_message.message_id
+        x = message.reply_to_message.message.id
         y = message.chat.id
         sent = 0
         chats = []
