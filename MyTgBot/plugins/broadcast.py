@@ -2,7 +2,7 @@
 
 import asyncio
 from pyrogram.types import Message
-from pyrogram import filters, Message
+from pyrogram import filters
 from MyTgBot import bot
 from MyTgBot.database.chatsdb import get_served_chats
 from MyTgBot.database.usersdb import get_served_users
