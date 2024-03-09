@@ -1,7 +1,7 @@
 #--------------------- Not Completed! -----------------
 
 import asyncio
-from pyrogram.types import *
+from pyrogram.types import Message
 from pyrogram import filters, Message
 from MyTgBot import bot
 from MyTgBot.database.chatsdb import get_served_chats
