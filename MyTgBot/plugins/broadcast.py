@@ -4,9 +4,8 @@ from MyTgBot import bot
 from pyrogram.errors.exceptions.flood_420 import FloodWait
 from MyTgBot.database.db import add_user, add_group, all_users, all_groups, users, remove_user
 import asyncio
-import config
 
-@bot.on_message(filters.command(["stats", "users"], ["/", "!", ".", "?"], config.DEV))
+@bot.on_message(filters.command(["stats", "users"], ["/", "!", ".", "?"]))
 async def dbtool(_, m : Message):
     xx = all_users()
     x = all_groups()
@@ -17,7 +16,7 @@ async def dbtool(_, m : Message):
 👥 Groups : `{x}`
 🚧 Total users & groups : `{tot}` """)
 
-@bot.on_message(filters.command(["bcast", "broadcast"], ["/", "!", "?", "."], config.DEV))
+@bot.on_message(filters.command(["bcast", "broadcast"], ["/", "!", "?", "."]))
 async def bcast(_, m : Message):
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
@@ -45,7 +44,7 @@ async def bcast(_, m : Message):
 
     await lel.edit(f"✅ Successfull to `{success}` users.\n❌ Faild to `{failed}` users.\n👾 Found `{blocked}` Blocked users \n👻 Found `{deactivated}` Deactivated users.")
 
-@bot.on_message(filters.command(["fcast", "forwardcast"], ["/", "?", "!", "."], config.DEV))
+@bot.on_message(filters.command(["fcast", "forwardcast"], ["/", "?", "!", "."]))
 async def fcast(_, m : Message):
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
