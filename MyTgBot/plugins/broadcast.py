@@ -46,7 +46,7 @@ async def bcast(_, m : Message):
             print(e)
             failed +=1
 
-    await lel.edit(f"✅ Successfull to `{success}` users.\n❌ Faild to `{failed}` users.\n👾 Found `{blocked}` Blocked users \n👻 Found `{deactivated}` Deactivated users.")
+    await lel.edit(f"✅ Successfull to sent `{success}` users.\n❌ Faild to sent `{failed}` users.\n👾 Found `{blocked}` Blocked users. \n👻 Found `{deactivated}` Deactivated users.")
 
 @bot.on_message(filters.command(["fcast", "forwardcast"], ["/", "?", "!", "."]))
 async def fcast(_, m : Message):
@@ -76,4 +76,4 @@ async def fcast(_, m : Message):
             print(e)
             failed +=1
 
-    await lel.edit(f"✅ Successfull to `{success}` users.\n❌ Faild to `{failed}` users.\n👾 Found `{blocked}` Blocked users \n👻 Found `{deactivated}` Deactivated users.")
+    await lel.edit(f"✅ Successfull to sent `{success}` users.\n❌ Faild to sent `{failed}` users.\n👾 Found `{blocked}` Blocked users. \n👻 Found `{deactivated}` Deactivated users.")
