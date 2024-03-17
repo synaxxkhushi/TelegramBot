@@ -32,6 +32,7 @@ async def start(_, message):
    else:
        pm_msg = "I Already Awake!  ( • ̀ω•́  )"
        await message.reply_text(pm_msg)
+       await add_group(message.from_user.id)
 
 @bot.on_message(filters.command("help"))
 async def help(_, message):
@@ -52,6 +53,7 @@ async def help(_, message):
 
    await message.reply_text(pm_text,
    reply_markup=kb,)
+   await add_group(message.from_user.id)
 pm_text = "Contact me in PM for help!"
 
 HELP_TEXT = """
