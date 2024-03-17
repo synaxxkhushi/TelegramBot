@@ -2,7 +2,7 @@ from pyrogram.types import Message
 from pyrogram import filters, errors, enums
 from MyTgBot import bot
 from pyrogram.errors.exceptions.flood_420 import FloodWait
-from MyTgBot.database.db import add_user, add_group, a all_groups, users, remove_user
+from MyTgBot.database.db import add_user, add_group, all_users, all_groups, users, remove_user
 import asyncio
 
 @bot.on_message(filters.command("users"))
