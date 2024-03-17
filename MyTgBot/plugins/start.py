@@ -28,18 +28,18 @@ async def start(_, message):
     await message.reply_text(START_TEXT,
     reply_markup=InlineKeyboardMarkup(buttons),)
     user_id = message.from_user.id
-    add_user(message.from_user.id)
+    await add_user(message.from_user.id)
    else:
        pm_msg = "I Already Awake!  ( • ̀ω•́  )"
        await message.reply_text(pm_msg)
-       add_group(message.from_user.id)
+       await add_group(message.from_user.id)
 
 @bot.on_message(filters.command("help"))
 async def help(_, message):
    if message.chat.type == ChatType.PRIVATE:
     await message.reply_text(HELP_TEXT,
     reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
-    add_user(message.from_user.id)
+    await add_user(message.from_user.id)
    else:
      kb = InlineKeyboardMarkup(
         [
@@ -54,7 +54,7 @@ async def help(_, message):
 
    await message.reply_text(pm_text,
    reply_markup=kb,)
-   add_group(message.from_user.id)
+   await add_group(message.from_user.id)
 pm_text = "Contact me in PM for help!"
 
 HELP_TEXT = """
