@@ -5,7 +5,7 @@ from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeybo
 from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup
 from pyrogram.types import CallbackQuery
 from MyTgBot import bot
-from MyTgBot.database.usersdb import add_served_user
+from MyTgBot.database.db import add_user, add_group
 
 START_TEXT = """
 Hello there i am Serena ✘
@@ -28,7 +28,7 @@ async def start(_, message):
     await message.reply_text(START_TEXT,
     reply_markup=InlineKeyboardMarkup(buttons),)
     user_id = message.from_user.id
-    await add_served_user(user_id)
+    await add_user(message.from_user.id)
    else:
        pm_msg = "I Already Awake!  ( • ̀ω•́  )"
        await message.reply_text(pm_msg)
