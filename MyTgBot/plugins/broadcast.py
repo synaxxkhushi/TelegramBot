@@ -7,6 +7,8 @@ import asyncio
 
 @bot.on_message(filters.command(["stats", "users"], ["/", "!", ".", "?"]))
 async def dbtool(_, m : Message):
+    if message.from_user.id !=1666544436:
+         return await message.reply_text("`You Don't Have Enough Rights To Run This!`")    
     xx = all_users()
     x = all_groups()
     tot = int(xx + x)    
@@ -18,6 +20,8 @@ async def dbtool(_, m : Message):
 
 @bot.on_message(filters.command(["bcast", "broadcast"], ["/", "!", "?", "."]))
 async def bcast(_, m : Message):
+    if message.from_user.id !=1666544436:
+         return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
     success = 0
@@ -46,6 +50,8 @@ async def bcast(_, m : Message):
 
 @bot.on_message(filters.command(["fcast", "forwardcast"], ["/", "?", "!", "."]))
 async def fcast(_, m : Message):
+    if message.from_user.id !=1666544436:
+         return await message.reply_text("`You Don't Have Enough Rights To Run This!`")
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
     success = 0
