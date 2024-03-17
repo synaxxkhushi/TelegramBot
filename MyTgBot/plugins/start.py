@@ -39,6 +39,7 @@ async def help(_, message):
    if message.chat.type == ChatType.PRIVATE:
     await message.reply_text(HELP_TEXT,
     reply_markup=InlineKeyboardMarkup(HELP_BUTTON),)
+    await add_user(message.from_user.id)
    else:
      kb = InlineKeyboardMarkup(
         [
