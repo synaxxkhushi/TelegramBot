@@ -2,7 +2,7 @@ from pyrogram.types import Message
 from pyrogram import filters, errors, enums
 from MyTgBot import bot
 from pyrogram.errors.exceptions.flood_420 import FloodWait
-from MyTgBot.database.db import add_user, add_group, all_users, all_groups, users, remove_user
+from MyTgBot.database.db import add_user, add_group, all_users, all_groups, users, groups, remove_user
 import asyncio
 
 @bot.on_message(filters.command(["stats", "users"], ["/", "!", ".", "?"]))
@@ -82,7 +82,7 @@ async def fcast(_, m : Message):
 async def gcast(_, m : Message):
     if m.from_user.id !=1666544436:
          return await m.reply_text("`You Don't Have Enough Rights To Run This!`")
-    allgroups = group
+    allgroups = groups
     lel = await m.reply_text("`⚡ Processing...`")
     success = 0
     failed = 0
