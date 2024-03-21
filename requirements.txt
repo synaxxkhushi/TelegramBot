@@ -4,6 +4,7 @@ pymongo[srv]
 asyncio
 tgcrypto
 telegraph
+ffmpeg-python
 gpytranslate
 requests
 motor
