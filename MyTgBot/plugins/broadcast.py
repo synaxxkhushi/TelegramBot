@@ -82,7 +82,7 @@ async def fcast(_, m : Message):
 async def gcast(_, m : Message):
     if m.from_user.id !=1666544436:
          return await m.reply_text("`You Don't Have Enough Rights To Run This!`")
-    allgroups = groups
+    allgroups = group
     lel = await m.reply_text("`⚡ Processing...`")
     success = 0
     failed = 0
