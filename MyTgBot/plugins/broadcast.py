@@ -98,4 +98,4 @@ async def gcast(_, m : Message):
             print(e)
             failed +=1
 
-  await lel.edit(f"✅ Successfull to sent `{success}` groups.\n❌ Faild to sent `{failed}` groups.")
+   await lel.edit(f"✅ Successfull to sent `{success}` groups.\n❌ Faild to sent `{failed}` groups.")
