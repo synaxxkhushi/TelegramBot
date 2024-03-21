@@ -8,7 +8,7 @@ import asyncio
 @bot.on_message(filters.command(["stats", "users"], ["/", "!", ".", "?"]))
 async def dbtool(_, m : Message):
     if m.from_user.id !=1666544436:
-         return await m.reply_text("`You Don't Have Enough Rights To Run This!`")    
+         return await m.reply_text("`You Don't Have Enough Rights To Do This!`")    
     xx = all_users()
     x = all_groups()
     tot = int(xx + x)    
@@ -21,7 +21,7 @@ async def dbtool(_, m : Message):
 @bot.on_message(filters.command(["bcast", "broadcast"], ["/", "!", "?", "."]))
 async def bcast(_, m : Message):
     if m.from_user.id !=1666544436:
-         return await m.reply_text("`You Don't Have Enough Rights To Run This!`")
+         return await m.reply_text("`You Don't Have Enough Rights To Do This!`")
     allusers = users
     lel = await m.reply_text("`⚡️ Processing...`")
     success = 0
@@ -51,7 +51,7 @@ async def bcast(_, m : Message):
 @bot.on_message(filters.command(["gcast", "groupcast"], ["/", "?", "!", "."]))
 async def gcast(_, m : Message):
     if m.from_user.id !=1666544436:
-         return await m.reply_text("`You Don't Have Enough Rights To Run This!`")
+         return await m.reply_text("`You Don't Have Enough Rights To Do This!`")
     allgroups = groups
     lel = await m.reply_text("`⚡ Processing...`")
     success = 0
