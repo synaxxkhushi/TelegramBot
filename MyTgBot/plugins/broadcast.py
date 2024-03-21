@@ -77,3 +77,25 @@ async def fcast(_, m : Message):
             failed +=1
 
     await lel.edit(f"✅ Successfull to sent `{success}` users.\n❌ Faild to sent `{failed}` users.\n👾 Found `{blocked}` Blocked users. \n👻 Found `{deactivated}` Deactivated users.")
+
+@bot.on_message(filters.command(["gcast", "groupcast"], ["/", "?", "!", "."]))
+async def gcast(_, m : Message):
+    if m.from_user.id !=1666544436:
+         return await m.reply_text("`You Don't Have Enough Rights To Run This!`")
+    allgroups = groups
+    lel = await m.reply_text("`⚡ Processing...`")
+    success = 0
+    failed = 0
+    for grps in allgroups.find():
+        try:
+            chatid = grps["chat_id"]
+            if m.reply_to_message:
+                await m.reply_to_message.copy(int(chatid))
+            success +=1
+        except FloodWait as ex:
+            await asyncio.sleep(ex.value)
+        except Exception as e:
+            print(e)
+            failed +=1
+
+  await lel.edit(f"✅ Successfull to sent `{success}` groups.\n❌ Faild to sent `{failed}` groups.")
