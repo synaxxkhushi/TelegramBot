@@ -18,7 +18,7 @@ async def dbtool(_, m : Message):
 👥 Groups : `{x}`
 🚧 Total users & groups : `{tot}` """)
 
-@bot.on_message(filters.command(["bcast", "broadcast"], ["/", "!", "?", "."]))
+@bot.on_message(filters.command(["bcast", "broadcast", "usercast"], ["/", "!", "?", "."]))
 async def bcast(_, m : Message):
     if m.from_user.id !=1666544436:
          return await m.reply_text("`You Don't Have Enough Rights To Do This!`")
