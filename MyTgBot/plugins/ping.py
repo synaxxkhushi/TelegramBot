@@ -1,7 +1,7 @@
 import time
 from pyrogram import filters
 
-from MyTgBot import bot, start, version
+from MyTgBot import bot, start
 from MyTgBot.help.readable_time import get_readable_time
 
 
@@ -14,8 +14,6 @@ async def ping(_, message):
     time_taken_s = round(end_t - start_t, 3)
     await rm.edit_caption(
         f"""
-**BOT VERSION:** {version}
-
 **PING:** {time_taken_s} seconds
 **UPTIME:** {currentTime}"""
     )
