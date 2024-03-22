@@ -207,11 +207,10 @@ async def noteshelp(_, query: CallbackQuery):
 
 @bot.on_message(filters.new_chat_members)
 async def new_chat(_, message):
-    chat = str(message.chat.id).replace("-100", "")
     bot_id = (await bot.get_me()).id
     add_group(message.chat.id)
     for member in message.new_chat_members:
         if member.id == bot_id:
             await message.reply(
-                "😘 Thanks for add me to your group ! "
+                "😘 Thanks for add me to your group !"
             )
