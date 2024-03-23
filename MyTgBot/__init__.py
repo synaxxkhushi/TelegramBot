@@ -1,5 +1,5 @@
 from pyrogram import Client
-from pymongo import MongoClient, errors as Mongoerrors
+from pymongo import MongoClient
 import os
 import time
 
@@ -14,11 +14,6 @@ MONGO = "mongodb+srv://kora3244:jNtUZleBWM71f1pC@haremdb.qxtdvdh.mongodb.net/?re
 mongo = MongoClient(MONGO)
 mongodb = mongo.BOT
 
-try:
-   mongodb.server_info()
-except Mongoerrors.ConnectionFailure:
-     print("Connection failure, INVALID MONGO DB URL!")
-     sys.exit()
 
 bot = Client("MyTgBot", 
        api_id=api_id, 
