@@ -20,7 +20,6 @@ except Mongoerrors.ConnectionFailure:
      print("Connection failure, INVALID MONGO DB URL!")
      sys.exit()
 
-
 bot = Client("MyTgBot", 
        api_id=api_id, 
        api_hash=api_hash,
