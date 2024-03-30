@@ -22,7 +22,7 @@ async def purge(_, m):
     elif not user_stats.privileges.can_delete_messages:
            return await m.reply_text("**your are missing the permission of**:\n`can_delete_messages`")
     elif user_stats.privileges.can_delete_messages:
-    if m.chat.type != ChatType.SUPERGROUP:
+    elif m.chat.type != ChatType.SUPERGROUP:
         await m.reply_text("Cannot Purge Messages Here, Upgrade Your Group To Supergroup")
         return
 
