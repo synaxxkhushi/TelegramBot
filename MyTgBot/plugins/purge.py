@@ -1,14 +1,27 @@
 from asyncio import sleep
-
-from pyrogram import filters
+from pyrogram import filters, enums
 from pyrogram.enums import ChatType
 from pyrogram.errors import MessageDeleteForbidden, RPCError
-
 from MyTgBot import bot
 
 
 @bot.on_message(filters.command("purge", ["/", ".", "?", "!"]))
 async def purge(_, m):
+    chat = m.chat
+    user = m.from_user
+    user_stats = await bot.get_chat_member(chat.id, user.id)
+    bot_stats = await bot.get_chat_member(chat.id, "self")
+    if not bot_stats.privileges:
+         return await m.reply_text("Make Me Admin REEE!!")
+    elif not user_stats.privileges:
+           return await m.reply_text("Only Admins are allowed to use this command!")    
+    elif not reply:
+           return  await m.reply_text("reply to message for deleting")
+    elif not bot_stats.privileges.can_delete_messages:
+           return await m.reply_text("**I'm missing the permission of**:\n`can_delete_messages`")
+    elif not user_stats.privileges.can_delete_messages:
+           return await m.reply_text("**your are missing the permission of**:\n`can_delete_messages`")
+    elif user_stats.privileges.can_delete_messages:
     if m.chat.type != ChatType.SUPERGROUP:
         await m.reply_text("Cannot Purge Messages Here, Upgrade Your Group To Supergroup")
         return
