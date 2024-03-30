@@ -1,5 +1,5 @@
 import requests
-from pyrogram import filters, Client
+from pyrogram import filters
 from pyrogram.types import Message, InputMediaPhoto
 from MyTgBot import bot
 from pyrogram.errors import MediaCaptionTooLong
