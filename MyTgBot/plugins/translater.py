@@ -7,7 +7,7 @@ from gpytranslate import Translator
 trans = Translator()
 
 
-@bot.on_message(filters.command(["tl", "tr"]))
+@bot.on_message(filters.command(["tl", "tr"], ["/", "!", ".", "?"]))
 async def translate(_, message) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
