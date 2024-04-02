@@ -1,11 +1,11 @@
 {
-      "name": "Pyrogram",
+      "name": "Serena",
       "description": "Personal use and learn Pyrogram bot.",
       "keywords": [
          "telegram",
          "pyrogram"
       ],
-      "repository": "https://github.com/Itz-Barath/PyrogramBot",
+      "repository": "https://github.com/Barath-XD/TelegramBot",
       "env": {
           "API_ID": {
           "description": "Enter your api id",
@@ -20,17 +20,10 @@
           "required": true
           }
        },
-       "addons": [],
-       "buildpacks": [
-           {
-               "url": "heroku/python"
-           }
-       ],
-       "formation": {
-            "worker": {
-            "quantity": 1,
-            "size": "basic"
-            }
-       },
-       "stack": "container"
-       }
+         "addons": [
+      {
+         "options": {
+            "version": "15"
+         },
+         "plan": "heroku/python:mini"
+      }
