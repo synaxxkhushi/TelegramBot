@@ -3,7 +3,7 @@ from pyrogram.types import *
 import requests 
 from MyTgBot import bot
 
-@bot.on_message(filters.command("write"))
+@bot.on_message(filters.command("write", ["/", "!", ".", "?"]))
 async def handwriting(_, message):
     if len(message.command) < 2:
         return await message.reply_text("» Give some text to write...")
