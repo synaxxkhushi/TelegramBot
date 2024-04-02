@@ -6,7 +6,7 @@ import requests
 
 #Dice
 
-@bot.on_message(filters.command("dice"))
+@bot.on_message(filters.command("dice", ["/", "!", ".", "?"]))
 async def roll_dice(bot, message):
     await bot.send_dice(message.chat.id, "🎲")
 
@@ -14,7 +14,7 @@ async def roll_dice(bot, message):
 
 #Truth OR Dare Game
 
-@bot.on_message(filters.command("dare"))
+@bot.on_message(filters.command("dare", ["/", "!", ".", "?"]))
 async def dare(_, m):
          reply = m.reply_to_message
          if reply:
@@ -35,7 +35,7 @@ Dare**: `{text}`
                """
                await m.reply_text(dare)
 
-@bot.on_message(filters.command("truth"))
+@bot.on_message(filters.command("truth", ["/", "!", ".", "?"]))
 async def truth(_, m):
          reply = m.reply_to_message
          if reply:
