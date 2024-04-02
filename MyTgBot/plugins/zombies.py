@@ -1,14 +1,20 @@
-from pyrogram import filters
+from pyrogram import filters, enums
 from MyTgBot import bot
 
 @bot.on_message(filters.command("cleanzombies"))
 async def ban_deleted_accounts(_, m):
+    get = await bot.get_chat_member(message.chat.id, message.from_user.id)
+    reply = m.reply_to_message
     chat_id = m.chat.id
     deleted_users = []
     banned_users = 0
+    if not get.privileges:
+         return await m.reply("**You Needs Admin Rights to Control Me (~_^)!**")
+    if not get.privileges.can_restrict_members:
+         return await m.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
     m = await m.reply("Finding ghosts...")
 
-    async for i in app.get_chat_members(chat_id):
+    async for i in bot.get_chat_members(chat_id):
         if i.user.is_deleted:
             deleted_users.append(i.user.id)
     if len(deleted_users) > 0:
