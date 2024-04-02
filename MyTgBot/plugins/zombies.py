@@ -3,7 +3,7 @@ from MyTgBot import bot
 
 @bot.on_message(filters.command("cleanzombies"))
 async def ban_deleted_accounts(_, m):
-    get = await bot.get_chat_member(message.chat.id, message.from_user.id)
+    get = await bot.get_chat_member(m.chat.id, m.from_user.id)
     reply = m.reply_to_message
     chat_id = m.chat.id
     deleted_users = []
