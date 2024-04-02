@@ -74,6 +74,9 @@ HELP_BUTTON = [[
         InlineKeyboardButton('🧚 Nekos', callback_data='nekos_help'),
         InlineKeyboardButton('❌ M-Action', callback_data='m-action_help'),
         ],[
+        InlineKeyboardButton('🤖 Ai', callback_data='ai_help'),
+        InlineKeyboardButton('☠ Zombies', callback_data='zombies_help'),
+        ],[
         InlineKeyboardButton('🏡 Home', callback_data='home')]]
 
 @bot.on_callback_query(filters.regex("home"))
@@ -203,6 +206,26 @@ Save notes on your chats:
 @bot.on_callback_query(filters.regex("notes_help"))
 async def noteshelp(_, query: CallbackQuery):
      await query.message.edit_caption(NOTES_TEXT,
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
+
+AI_TEXT = """
+Usage of Ai commands:
+• /ask - ask anything to ChatGPT.
+"""
+
+@bot.on_callback_query(filters.regex("ai_help"))
+async def aihelp(_, query: CallbackQuery):
+     await query.message.edit_caption(AI_TEXT,
+                                      reply_markup=InlineKeyboardMarkup(BUTTON),)
+
+ZOMBIES_TEXT = """
+Usage of Zombies commands:
+• /cleanzombies - Remove delete account on you chat.
+"""
+
+@bot.on_callback_query(filters.regex("zombies_help"))
+async def zombieshelp(_, query: CallbackQuery):
+     await query.message.edit_caption(ZOMBIES_TEXT,
                                       reply_markup=InlineKeyboardMarkup(BUTTON),)
 
 @bot.on_message(filters.new_chat_members)
