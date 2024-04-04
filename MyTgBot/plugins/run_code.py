@@ -75,8 +75,8 @@ async def eval(client, message):
 
 @bot.on_message(filters.user(DEV_USERS) & filters.command(["sh","shell"],["?","!",".","*","/","$"]))
 async def sh(client, message):
-         code = message.text.replace(message.text.split(" ")[0], "")
-         await message.reply_text("`No Input Found!`")
+          code = message.text.replace(message.text.split(" ")[0], "")
+          await message.reply_text("`No Input Found!`")
           x = run(code)
           string = f"**📎 Input**: `{code}`\n\n**📒 Output **:\n`{x}`"
           try:
