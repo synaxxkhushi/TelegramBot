@@ -5,7 +5,7 @@ from pyrogram import filters
 from MyTgBot import bot
 
 # Command handler for /generate
-@bot.on_message(filters.command('generate', ["/", "!", ".", "?"]))
+@bot.on_message(filters.command(["generate", "gen"], ["/", "!", ".", "?"]))
 async def generate_image(client, message):
     # Get the prompt from the command
     prompt = ' '.join(message.command[1:])
