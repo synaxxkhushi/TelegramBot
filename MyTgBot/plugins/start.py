@@ -133,6 +133,7 @@ Extra commands:
 • /tm - reply media to get telegraph link.
 • /txt - reply text with suitable name and get telegraph text link.
 • /tr - reply text to translate the message.
+• /gen - to generate image.
 • /write - to write a message.
 """
 
