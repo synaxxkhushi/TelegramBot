@@ -22,25 +22,38 @@ async def admins(_, message):
 
 @bot.on_message(filters.command("ban",  ["/", ".", "?", "!"]))
 async def ban(_, message):
-    if message.chat.type == "private":
+    chat_id = message.chat.id
+    
+    if message.chat.type == enums.ChatType.PRIVATE::
         await message.reply_text("Work only on groups!")
     else:
         try:
             if not message.reply_to_message:
-                 return await message.reply("**Reply someone to ban.**")
-            get = await bot.get_chat_member(message.chat.id, message.from_user.id)
-            reply = message.reply_to_message
-            if not get.privileges:
-                return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
-            if get.privileges.can_restrict_members:
-                chat_id = message.chat.id
-                user_id  = message.reply_to_message.from_user.id
-                await bot.ban_chat_member(chat_id, user_id)
-                await message.reply_text(text= "**Banned {}!**".format(reply.from_user.mention))
+                if len(message.text.split()) > 1:
+                        user_id = message.text.split()[1]
+                        try:
+                            get = await bot.get_users(user_id)
+                            await bot.ban_chat_member(chat_id, get.id)
+                            return await message.reply(
+                                f'Banned! {get.mention}'
+                            )
+                        except Exception as e:
+                               return await message.reply(str(e))
+                    
             else:
-                await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
+                get = await bot.get_chat_member(message.chat.id, message.from_user.id)
+                reply = message.reply_to_message
+                if not get.privileges:
+                    return await message.reply("**You Needs Admin Rights to Control Me (~_^)!**")
+                if get.privileges.can_restrict_members:
+                     chat_id = message.chat.id
+                     user_id  = message.reply_to_message.from_user.id
+                     await bot.ban_chat_member(chat_id, user_id)
+                     await message.reply_text(text= "**Banned {}!**".format(reply.from_user.mention))
+                else:
+                     await message.reply_text(text = "**Your missing the admin rights `can_restrict_members`**")
         except Exception as errors:
-           await message.reply(f"**Error**: {errors}")
+           return await message.reply(f"**Error**: {errors}")
 
 
 @bot.on_message(filters.command("unban",  ["/", ".", "?", "!"]))
