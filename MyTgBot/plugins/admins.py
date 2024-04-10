@@ -24,7 +24,7 @@ async def admins(_, message):
 async def ban(_, message):
     chat_id = message.chat.id
     
-    if message.chat.type == enums.ChatType.PRIVATE::
+    if message.chat.type == enums.ChatType.PRIVATE:
         await message.reply_text("Work only on groups!")
     else:
         try:
@@ -38,8 +38,7 @@ async def ban(_, message):
                                 f'Banned! {get.mention}'
                             )
                         except Exception as e:
-                               return await message.reply(str(e))
-                    
+                               return await message.reply(str(e))                    
             else:
                 get = await bot.get_chat_member(message.chat.id, message.from_user.id)
                 reply = message.reply_to_message
